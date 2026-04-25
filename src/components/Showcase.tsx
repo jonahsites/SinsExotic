@@ -32,26 +32,26 @@ const modelData = [
 
 const sections = [
   {
-    label: "01 — Hybrid Super SUV",
+    label: "Super SUV",
     title: "Lamborghini\nUrus SE",
-    desc: "The pinnacle of high-performance utility. 800 CV of lightning-fast acceleration and uncompromising power.",
-    tags: ["High Velocity", "800 CV", "Turbocharged"],
+    desc: "The pinnacle of performance utility. Uncompromising grace and sophisticated power for the modern road.",
+    tags: ["Elite", "Hybrid", "Exclusive"],
     color: "#050505",
     accent: "#E31B23"
   },
   {
-    label: "02 — M Performance",
+    label: "Refined Performance",
     title: "BMW\nM4 Competition",
-    desc: "Precision engineering meets aggressive design. A straight-six masterpiece that delivers raw power and surgical handling.",
-    tags: ["M-Powered", "503 HP", "Isle of Man Green"],
+    desc: "Engineered for absolute precision. A harmonious blend of athletic design and unmatched driving dynamics.",
+    tags: ["Bespoke", "M-Series", "Refined"],
     color: "#050505",
     accent: "#E31B23"
   },
   {
-    label: "03 — Track Focused",
+    label: "Pure Driving",
     title: "McLaren\n570S Coupe",
-    desc: "A pure driver's car. Lightweight carbon construction and a mid-mounted V8 designed for the ultimate adrenaline rush.",
-    tags: ["Carbon Tube", "V8 Bi-Turbo", "Monocell II"],
+    desc: "A vision of aerodynamic excellence. Lightweight, agile, and meticulously crafted for those who value the journey.",
+    tags: ["Lightweight", "V8 Prestige", "Elite"],
     color: "#050505",
     accent: "#E31B23"
   }
@@ -523,21 +523,21 @@ const Showcase: React.FC = () => {
           style={{ backgroundColor: `${section.color}0D` }}
         >
           {/* Decorative background character */}
-          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none overflow-hidden w-full h-full flex items-center justify-center opacity-[0.03]">
-            <span className="text-[60vh] font-serif font-black tracking-tighter uppercase" style={{ color: section.accent }}>
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 pointer-events-none select-none overflow-hidden w-full h-full flex items-center justify-center opacity-[0.02]">
+            <span className="text-[60vh] font-serif tracking-tighter uppercase" style={{ color: section.accent }}>
               {section.title.charAt(0)}
             </span>
           </div>
 
           <div className={`max-w-xl pointer-events-auto ${i % 2 === 0 ? 'text-left' : 'text-right'}`}>
             <div 
-              className="text-[10px] font-bold uppercase tracking-[0.6em] mb-6 transition-colors duration-500"
+              className="text-[10px] font-medium uppercase tracking-[0.6em] mb-6 transition-colors duration-500 italic"
               style={{ color: section.accent }}
             >
               {section.label}
             </div>
             
-            <h2 className="text-5xl md:text-8xl font-serif font-bold mb-8 leading-[0.85] tracking-tighter whitespace-pre-line uppercase">
+            <h2 className="text-5xl md:text-8xl font-serif mb-8 leading-[0.85] tracking-tight whitespace-pre-line uppercase">
               {section.title.split('\n').map((line, idx) => (
                 <span key={idx} className="block last:text-white/40">
                   {line}

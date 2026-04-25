@@ -55,9 +55,9 @@ const Inventory: React.FC<InventoryProps> = ({ onClose }) => {
         {/* Header */}
         <div className="flex justify-between items-start mb-20">
           <div>
-            <div className="text-accent text-[10px] uppercase tracking-[0.5em] font-bold mb-4">Turismo Exotics High Performance Fleet</div>
-            <h2 className="text-5xl md:text-7xl font-bold uppercase tracking-tighter leading-none">
-              The <span className="text-white/20 text-outline">Power</span> <br/> On Demand.
+            <div className="text-red-500 text-[10px] uppercase tracking-[0.5em] font-medium mb-4 italic">Sins Exotic Car Rental | The Elite Collection</div>
+            <h2 className="text-5xl md:text-7xl font-serif uppercase leading-none tracking-normal">
+              The <span className="text-white/20 text-outline italic">Experience</span> <br/> On Demand.
             </h2>
           </div>
           <button 
@@ -75,8 +75,8 @@ const Inventory: React.FC<InventoryProps> = ({ onClose }) => {
               <button
                 key={cat}
                 onClick={() => setActiveCategory(cat)}
-                className={`px-6 py-2 rounded-full text-[10px] font-bold uppercase tracking-widest transition-all ${
-                  activeCategory === cat ? 'bg-accent text-black' : 'bg-white/5 border border-white/10 text-white/40 hover:text-white'
+                className={`px-6 py-2 rounded-full text-[10px] font-medium uppercase tracking-[0.2em] transition-luxury ${
+                  activeCategory === cat ? 'bg-red-600 text-white' : 'bg-white/[0.03] border border-white/5 text-white/40 hover:text-white'
                 }`}
               >
                 {cat}
@@ -124,16 +124,16 @@ const Inventory: React.FC<InventoryProps> = ({ onClose }) => {
 
                 {/* Info */}
                 <div className="p-8">
-                  <div className="text-[9px] uppercase tracking-widest text-white/30 mb-2">{car.category}</div>
-                  <h3 className="text-xl font-bold uppercase tracking-tighter mb-6 group-hover:text-accent transition-colors">{car.name}</h3>
+                  <div className="text-[9px] uppercase tracking-[0.3em] text-white/30 mb-2 font-sans italic">{car.category}</div>
+                  <h3 className="text-xl font-serif uppercase tracking-tight mb-6 group-hover:text-red-500 transition-luxury">{car.name}</h3>
                   <div className="grid grid-cols-2 gap-4 border-t border-white/5 pt-6">
                     <div>
-                      <div className="text-[9px] uppercase text-white/20 tracking-widest mb-1">Horsepower</div>
-                      <div className="text-sm font-bold tracking-tighter">{car.hp} HP</div>
+                      <div className="text-[9px] uppercase text-white/20 tracking-widest mb-1 font-sans">Power</div>
+                      <div className="text-sm font-light tracking-tight">{car.hp} HP</div>
                     </div>
                     <div>
-                      <div className="text-[9px] uppercase text-white/20 tracking-widest mb-1">Max Speed</div>
-                      <div className="text-sm font-bold tracking-tighter">{car.speed}</div>
+                      <div className="text-[9px] uppercase text-white/20 tracking-widest mb-1 font-sans">Performance</div>
+                      <div className="text-sm font-light tracking-tight">{car.speed}</div>
                     </div>
                   </div>
                 </div>
@@ -151,7 +151,7 @@ const Inventory: React.FC<InventoryProps> = ({ onClose }) => {
 
         {filteredCars.length === 0 && (
           <div className="py-40 text-center">
-            <p className="text-white/20 uppercase tracking-[0.5em] text-xs">No matching vehicles found in our Miami collection.</p>
+            <p className="text-white/20 uppercase tracking-[0.5em] text-xs">No matching vehicles found in our collection.</p>
           </div>
         )}
       </div>

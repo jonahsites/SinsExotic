@@ -20,12 +20,12 @@ const faqItems = [
   { q: "What if my insurance deductible is over $2,500?", a: "We may require an additional security deposit or supplemental coverage in certain high-deductible cases." },
   { q: "Do you have any extra hidden fees?", a: "Transparency is key. We detail all costs upfront, including delivery, fuel, and security deposits." },
   { q: "Insurance requirements for business rentals?", a: "Business rentals require commercial insurance coverage or a verified corporate policy. Contact us for specifics." },
-  { q: "Do you offer delivery service?", a: "Yes! We offer delivery to Miami International Airport (MIA), Fort Lauderdale (FLL), and custom locations across the Miami area." },
+  { q: "Do you offer delivery service?", a: "Yes! We offer delivery to New York (NY) and New Jersey (NJ) and custom locations across the area." },
   { q: "How many miles are included with my rental?", a: "Standard rentals typically include 100-150 miles per day. Excess mileage fees apply thereafter." },
   { q: "What is your security deposit policy?", a: "A refundable security deposit is required for all rentals. The amount varies based on the vehicle selected." },
   { q: "What is your cancellation policy?", a: "Cancellations made 72+ hours in advance are eligible for a credit. Late cancellations may incur fees." },
   { q: "Do you offer pick-up or drop-off outside of business hours?", a: "Yes, we offer flexible pick-up and drop-off options. Please coordinate with our team in advance for after-hours service." },
-  { q: "Do you offer roadside assistance?", a: "Every rental includes 24/7 roadside assistance for your peace of mind while exploring the Miami area." },
+  { q: "Do you offer roadside assistance?", a: "Every rental includes 24/7 roadside assistance for your peace of mind while exploring the NY/NJ area." },
   { q: "Less than 72 hour reservation?", a: "While we prefer advance booking, we can often accommodate last-minute requests. Check availability directly for same-day requests." },
   { q: "Do you offer military discount?", a: "We are proud to support our service members. Please inquire about our military discount program when booking." },
 ];
@@ -46,23 +46,19 @@ export default function App() {
 
   return (
     <div className="relative bg-black font-sans selection:bg-red-500 selection:text-white overflow-x-hidden" id="home">
-      {/* Background HUD Layers */}
-      <div className="fixed inset-0 z-0 bg-grid-scan opacity-20 pointer-events-none" />
-      <div className="fixed inset-0 z-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-px bg-linear-to-r from-transparent via-red-500/20 to-transparent" />
-        <div className="absolute bottom-0 left-0 w-full h-px bg-linear-to-r from-transparent via-red-500/20 to-transparent" />
-        <div className="absolute top-1/2 left-0 w-full h-[1px] bg-white opacity-[0.02]" />
-      </div>
+      {/* Background Layers */}
+      <div className="fixed inset-0 z-0 bg-grain pointer-events-none" />
+      <div className="fixed inset-0 z-0 pointer-events-none bg-linear-to-b from-red-950/5 to-transparent" />
 
-      {/* Floating HUD Navigation */}
-      <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-100 flex items-center gap-2 px-2 py-2 bg-black/40 backdrop-blur-xl border border-white/10 rounded-full pointer-events-auto">
+      {/* Navigation */}
+      <nav className="fixed top-8 left-1/2 -translate-x-1/2 z-100 flex items-center gap-2 px-2 py-2 bg-black/60 backdrop-blur-2xl border border-white/5 rounded-full pointer-events-auto shadow-2xl">
         <div className="flex items-center gap-3 px-6 py-2 border-r border-white/10">
           <img 
-            src="/Screenshot 2026-04-23 at 12.45.14 PM.png" 
-            alt="Turismo" 
-            className="h-6 w-auto invert brightness-0"
+            src="https://scontent-lga3-1.cdninstagram.com/v/t51.82787-19/526703414_17852401122503048_6359411001709861290_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=109&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=kzFGTBJd2ngQ7kNvwHCeAIb&_nc_oc=AdpBzAtLfUSf58lbGQ7H-x-kXyePdzMi4vfXPdgwHHFGjOOPIYtCVb2zgh7yBX41CoZlv9p69phK-YkZZRsILwJk&_nc_ad=z-m&_nc_cid=0&_nc_zt=24&_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_gid=4iA01epEyhECIB4zBDKZ8A&_nc_ss=7a22e&oh=00_Af2_J-F0jYbIWBXWh0X-wVGqeAccL7Km0tfr6WbpYSbB-g&oe=69F29EA0" 
+            alt="Sins Exotic Car Rental" 
+            className="h-10 w-10 object-cover rounded-full"
           />
-          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white hidden md:block">Turismo Exotics</span>
+          <span className="text-[10px] font-bold uppercase tracking-[0.3em] text-white hidden md:block">Sins Exotic Car Rental</span>
         </div>
         <div className="flex items-center gap-1 md:gap-4 px-2">
           {navLinks.map((link, i) => (
@@ -89,80 +85,71 @@ export default function App() {
         </button>
       </nav>
 
-      {/* HERO SECTION: ASYMMETRIC HUD LAYOUT */}
+      {/* HERO SECTION */}
       <motion.section 
         style={{ opacity: heroOpacity, scale: heroScale }}
         className="relative z-10 min-h-screen flex flex-col justify-center items-center px-10 md:px-24 pt-32"
       >
-        <div className="w-full max-w-[1600px] grid grid-cols-1 lg:grid-cols-[1.5fr_1fr] gap-12 items-end">
-          {/* Left: Aggressive Typography */}
+        <div className="w-full max-w-[1600px] grid grid-cols-1 lg:grid-cols-[1.2fr_1fr] gap-12 items-center">
+          {/* Left Content */}
           <div className="relative z-20">
             <motion.div
-              initial={{ x: -50, opacity: 0 }}
+              initial={{ x: -30, opacity: 0 }}
               animate={{ x: 0, opacity: 1 }}
-              transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
+              transition={{ duration: 1.2, ease: [0.16, 1, 0.3, 1] }}
             >
               <div className="flex items-center gap-4 mb-8">
-                <div className="w-12 h-0.5 bg-red-600" />
-                <span className="text-[10px] font-black uppercase tracking-[0.8em] text-red-500">System Ready</span>
+                <div className="w-8 h-px bg-red-600" />
+                <span className="text-[10px] font-medium uppercase tracking-[0.6em] text-red-500">Elite Collection</span>
               </div>
-              <h1 className="text-7xl md:text-9xl lg:text-[140px] font-bold leading-[0.8] uppercase tracking-[-0.06em] mb-12">
-                Unleash <br/> 
-                <span className="text-outline">The Beast.</span>
+              <h1 className="text-7xl md:text-9xl lg:text-[120px] font-serif leading-[0.9] uppercase tracking-tight mb-12">
+                Experience <br/> 
+                <span className="text-outline italic">Perfection.</span>
               </h1>
-              <div className="grid grid-cols-2 gap-12 max-w-md border-t border-white/10 pt-12">
+              <div className="grid grid-cols-2 gap-12 max-w-md border-t border-white/5 pt-12">
                 <div>
-                  <p className="text-[9px] uppercase tracking-widest text-white/30 mb-2">Fleet Dynamics</p>
-                  <p className="text-sm font-medium leading-relaxed">Hypercars curated for the absolute performance purist.</p>
+                  <p className="text-[9px] uppercase tracking-widest text-white/30 mb-2 font-sans">Our Fleet</p>
+                  <p className="text-sm font-light leading-relaxed text-white/70">Exotic Cars / Luxury Cars / Elite service</p>
                 </div>
                 <div>
-                  <p className="text-[9px] uppercase tracking-widest text-white/30 mb-2">Location Hubs</p>
-                  <p className="text-sm font-medium leading-relaxed">Miami / Tampa / Orlando / NY.</p>
+                  <p className="text-[9px] uppercase tracking-widest text-white/30 mb-2 font-sans">Our Locations</p>
+                  <p className="text-sm font-light leading-relaxed text-white/70">NY / NJ</p>
                 </div>
               </div>
             </motion.div>
           </div>
 
-          {/* Right: Technical Data + Visual */}
+          {/* Right Visual */}
           <div className="relative group">
             <motion.div
-              initial={{ scale: 0.9, opacity: 0 }}
+              initial={{ scale: 1.05, opacity: 0 }}
               animate={{ scale: 1, opacity: 1 }}
-              transition={{ delay: 0.3, duration: 1 }}
-              className="relative aspect-3/4 w-full bg-luxury-grey rounded-sm overflow-hidden corner-bracket"
+              transition={{ delay: 0.3, duration: 1.5 }}
+              className="relative aspect-3/4 w-full bg-luxury-grey rounded-sm overflow-hidden"
             >
               <img 
                 src="https://static.wixstatic.com/media/dfb3c4_0fd7d8ad30e046cd8149d8b77cd62c79~mv2.jpeg/v1/fill/w_590,h_514,al_c,q_80,usm_0.66_1.00_0.01,enc_avif,quality_auto/Roller%20Pics_JPEG.jpeg" 
                 className="w-full h-full object-cover opacity-60 group-hover:scale-110 group-hover:opacity-100 transition-editorial"
                 referrerPolicy="no-referrer"
               />
-              <div className="absolute inset-0 bg-linear-to-t from-black transition-opacity group-hover:opacity-40" />
-              
-              {/* HUD Elements on Image */}
-              <div className="absolute top-8 left-8 flex flex-col gap-1">
-                <span className="text-[8px] font-mono text-white/50 tracking-widest">SCAN_SEQ_082</span>
-                <div className="w-10 h-0.5 bg-red-600" />
-              </div>
-
               <div className="absolute bottom-8 left-8 right-8">
                 <div className="flex justify-between items-end">
                   <div>
-                    <p className="text-4xl font-bold mb-1 tracking-tighter">TURISMO</p>
-                    <p className="text-[10px] uppercase tracking-[0.4em] text-red-500 font-bold">Elite Performance</p>
+                    <p className="text-4xl font-serif mb-1 tracking-normal italic">Sins Exotic</p>
+                    <p className="text-[10px] uppercase tracking-[0.4em] text-red-500 font-medium">Refined Excellence</p>
                   </div>
-                  <MousePointer2 className="text-white/20 -rotate-12" size={32} />
                 </div>
               </div>
             </motion.div>
           </div>
         </div>
 
-        {/* Global Specs - HUD Strips */}
+        {/* Global Specs - Refined */}
         <div className="w-full max-w-[1600px] mt-24 border-y border-white/5 grid grid-cols-2 lg:grid-cols-4 gap-0 divide-x divide-white/5">
           {specs.map((spec, i) => (
-            <div key={i} className="px-10 py-12 flex flex-col gap-2 group cursor-crosshair hover:bg-red-600/5 transition-colors">
-              <span className="text-[9px] font-mono text-white/20 tracking-widest uppercase">[{i.toString().padStart(2, '0')}] {spec.label}</span>
-              <span className="text-4xl font-bold tracking-tighter group-hover:text-red-500 transition-colors uppercase">{spec.val}</span>
+            <div key={i} className="px-10 py-12 flex flex-col gap-2 group hover:bg-white/[0.02] transition-colors">
+              <span className="text-[9px] font-sans text-white/20 tracking-widest uppercase">{spec.label}</span>
+              <span className="text-4xl font-serif tracking-tight group-hover:text-red-500 transition-colors uppercase">{spec.val}</span>
             </div>
           ))}
         </div>
@@ -173,54 +160,52 @@ export default function App() {
         <Showcase />
       </div>
 
-      {/* SERVICES: BENTO DATA GRID */}
+      {/* SERVICES */}
       <section id="services" className="relative z-20 py-40 bg-black px-10 md:px-16">
         <div className="max-w-[1400px] mx-auto">
           <div className="flex flex-col md:flex-row justify-between items-end gap-12 mb-24">
             <div className="max-w-2xl">
-              <span className="text-[10px] font-bold uppercase tracking-[0.8em] text-red-500 mb-6 block">Command Center Services</span>
-              <h2 className="text-6xl md:text-8xl font-bold tracking-tighter uppercase leading-[0.85]">Technical <br/> <span className="text-outline">Support.</span></h2>
+              <span className="text-[10px] font-medium uppercase tracking-[0.8em] text-red-500 mb-6 block">Concierge Support</span>
+              <h2 className="text-6xl md:text-8xl leading-[0.85] font-serif uppercase">Premium <br/> <span className="text-outline italic">Experience.</span></h2>
             </div>
             <div className="flex flex-col items-end text-right">
-              <p className="text-white/40 text-sm leading-relaxed max-w-xs mb-8 uppercase tracking-widest font-mono">
-                Real-time support / Multi-modal logistics / Performance optimization
+              <p className="text-white/40 text-sm leading-relaxed max-w-xs mb-8 uppercase tracking-widest font-sans">
+                Bespoke chauffeur / Seamless logistics / 24-hour concierge
               </p>
               <div className="flex gap-2">
-                {[1, 2, 3].map(i => <div key={i} className="w-1.5 h-1.5 bg-red-600" />)}
+                {[1, 2, 3].map(i => <div key={i} className="w-1.5 h-1.5 rounded-full bg-red-600/40" />)}
               </div>
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-12 gap-4 auto-rows-[300px] md:auto-rows-[400px]">
+          <div className="grid grid-cols-1 md:grid-cols-12 gap-6 auto-rows-[300px] md:auto-rows-[400px]">
             {/* Featured Bento Item */}
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="md:col-span-8 group relative bg-luxury-grey rounded-sm overflow-hidden border border-white/5 corner-bracket"
+              className="md:col-span-8 group relative bg-luxury-grey rounded-sm overflow-hidden border border-white/5"
             >
-              <img src="https://static.wixstatic.com/media/dfb3c4_c0a36ab317df453aa2e9e293710567a1~mv2.jpg" className="w-full h-full object-cover opacity-40 group-hover:scale-105 transition-editorial grayscale group-hover:grayscale-0" referrerPolicy="no-referrer" />
+              <img src="https://static.wixstatic.com/media/dfb3c4_c0a36ab317df453aa2e9e293710567a1~mv2.jpg" className="w-full h-full object-cover opacity-60 group-hover:scale-105 transition-luxury" referrerPolicy="no-referrer" />
               <div className="absolute inset-0 bg-linear-to-t from-black/80 via-transparent h-full" />
               <div className="absolute bottom-12 left-12">
-                <span className="text-[10px] font-bold text-red-500 mb-4 block uppercase tracking-widest font-mono">MOD_PHOTO_PRO</span>
-                <h3 className="text-4xl font-bold mb-4 uppercase">Visual Documentation</h3>
-                <p className="text-white/40 text-sm max-w-xs uppercase tracking-widest leading-loose">High-fidelity photography for elite fleet documentation.</p>
+                <h3 className="text-4xl font-serif mb-4 uppercase tracking-tight">Luxury Concierge</h3>
+                <p className="text-white/60 text-sm max-w-sm font-light leading-relaxed">Dedicated service tailored to your absolute requirements.</p>
               </div>
-              <div className="absolute top-12 right-12 text-3xl font-bold text-white/10 group-hover:text-red-500/40 transition-colors">01</div>
+              <div className="absolute top-12 right-12 text-3xl font-serif font-light text-white/5 italic">01</div>
             </motion.div>
 
             {/* Square Bento Item */}
             <motion.div 
-              initial={{ opacity: 0, x: 30 }}
+              initial={{ opacity: 0, x: 20 }}
               whileInView={{ opacity: 1, x: 0 }}
-              className="md:col-span-4 group bg-red-600 p-12 rounded-sm flex flex-col justify-between hover:bg-red-700 transition-colors cursor-pointer"
+              className="md:col-span-4 group bg-red-600 p-12 rounded-sm flex flex-col justify-between hover:bg-neutral-900 transition-luxury cursor-pointer"
             >
               <div className="text-white">
-                <span className="text-[10px] font-bold text-white/50 mb-4 block uppercase tracking-widest font-mono">MOD_ROM_PKG</span>
-                <h3 className="text-4xl font-bold mb-6 uppercase">Redline Experience</h3>
+                <h3 className="text-4xl font-serif mb-6 uppercase italic">Bespoke Experience</h3>
               </div>
               <div className="flex flex-col gap-6">
-                <p className="text-white/70 text-xs uppercase tracking-[0.2em] leading-relaxed">Turbocharge your events with bespoke automotive styling and concierge delivery.</p>
-                <ArrowUpRight size={48} className="text-white/20 group-hover:text-white transition-all transform group-hover:translate-x-2 group-hover:-translate-y-2" />
+                <p className="text-white/80 text-sm font-light leading-relaxed">Elevate your presence with our curated automotive collection and personal delivery.</p>
+                <ArrowUpRight size={40} className="text-white/40 group-hover:text-white transition-all transform group-hover:translate-x-1 group-hover:-translate-y-1" />
               </div>
             </motion.div>
 
@@ -228,15 +213,15 @@ export default function App() {
             <motion.div 
               initial={{ opacity: 0, y: 30 }}
               whileInView={{ opacity: 1, y: 0 }}
-              className="md:col-span-4 bg-luxury-grey p-10 border border-white/5 hover:border-red-500/40 transition-colors"
+              className="md:col-span-4 bg-luxury-grey p-10 border border-white/5 hover:border-red-500/20 transition-luxury"
             >
               <div className="flex flex-col h-full justify-between">
-                <div className="w-12 h-12 bg-white/5 flex items-center justify-center rounded-sm">
-                  <Phone size={20} className="text-red-500" />
+                <div className="w-12 h-12 bg-white/[0.03] flex items-center justify-center rounded-full">
+                  <Phone size={18} className="text-red-500" />
                 </div>
                 <div>
-                  <h4 className="text-lg font-bold mb-2 uppercase">24/7 Logistics</h4>
-                  <p className="text-white/30 text-[10px] uppercase tracking-widest leading-relaxed">Round-the-clock technical and logistical support for all clients.</p>
+                  <h4 className="text-lg font-serif mb-2 uppercase tracking-wide">Refined Support</h4>
+                  <p className="text-white/40 text-[11px] font-light leading-relaxed">24-hour dedicated assistance for every journey.</p>
                 </div>
               </div>
             </motion.div>
@@ -248,127 +233,119 @@ export default function App() {
               className="md:col-span-8 group relative bg-luxury-grey rounded-sm overflow-hidden border border-white/5 flex items-center p-12"
             >
               <div className="flex flex-col md:flex-row gap-12 items-center w-full">
-                <div className="w-24 h-24 border border-red-500/40 flex items-center justify-center rounded-full hud-glow shrink-0">
-                  <div className="w-16 h-16 border border-white/10 rounded-full animate-pulse" />
+                <div className="w-20 h-20 border border-red-500/20 flex items-center justify-center rounded-full shrink-0">
+                  <div className="w-14 h-14 border border-white/5 rounded-full" />
                 </div>
-                <div className="flex-1">
-                  <h3 className="text-3xl font-bold mb-4 uppercase">VIP Precision Delivery</h3>
-                  <p className="text-white/40 text-sm uppercase tracking-widest leading-loose">Automated coordinate tracking and delivery to any of our served multi-state locations.</p>
+                <div className="flex-1 text-center md:text-left">
+                  <h3 className="text-3xl font-serif mb-3 uppercase italic">VIP Delivery Services</h3>
+                  <p className="text-white/40 text-sm font-light leading-relaxed">Seamless delivery across our multiple state locations.</p>
                 </div>
-                <button className="px-8 py-4 bg-white/5 border border-white/10 text-[10px] font-bold uppercase tracking-widest hover:bg-red-600 transition-colors shrink-0">Inquire</button>
+                <button className="px-10 py-4 bg-white/[0.03] border border-white/10 text-[10px] font-medium uppercase tracking-[0.2em] hover:bg-red-600 transition-luxury shrink-0">Inquire</button>
               </div>
             </motion.div>
           </div>
         </div>
       </section>
 
-      {/* ABOUT: INDUSTRIAL STYLE */}
+      {/* ABOUT */}
       <section id="about" className="relative z-20 py-48 bg-black">
         <div className="max-w-[1400px] mx-auto px-10 md:px-16">
           <div className="grid grid-cols-1 lg:grid-cols-2 gap-32 items-center">
-            <div className="order-2 lg:order-1">
-              <div className="flex items-center gap-6 mb-12">
-                <div className="w-20 h-[1px] bg-red-600" />
-                <span className="text-[10px] font-bold uppercase tracking-[0.8em] text-red-500">Core Protocol</span>
+            <div className="order-2 lg:order-1 text-center lg:text-left">
+              <div className="flex items-center justify-center lg:justify-start gap-6 mb-12">
+                <div className="w-12 h-px bg-red-600" />
+                <span className="text-[10px] font-medium uppercase tracking-[0.8em] text-red-500">Our Legacy</span>
               </div>
-              <h2 className="text-7xl md:text-9xl font-bold tracking-tighter uppercase leading-[0.85] mb-12">Total <br/> <span className="text-outline">Command.</span></h2>
-              <div className="space-y-8 text-white/50 text-xl leading-relaxed font-light font-mono">
+              <h2 className="text-7xl md:text-9xl font-serif uppercase leading-[0.85] mb-12 italic text-outline">Sophisticated <br/> <span className="not-italic text-white">Refinement.</span></h2>
+              <div className="space-y-8 text-white/60 text-xl leading-relaxed font-light">
                 <p>
-                  &gt; TURISMO EXOTICS IS MORE THAN RENTALS.<br/>
-                  &gt; WE ARE THE PERFORMANCE OPERATORS OF MIAMI, TAMPA, ORLANDO & NY.
+                  Sins Exotic is the premier curator of high-performance automotive experiences, serving New York and New Jersey with absolute distinction.
                 </p>
-                <p className="text-base text-white/30 uppercase tracking-widest leading-loose">
-                  Our fleet is a curated selection of automotive precision. We provide the weaponry for the streets across our major hubs, maintained to surgical standards and delivered with absolute efficiency.
+                <p className="text-base text-white/30 uppercase tracking-[0.2em] font-sans leading-loose">
+                  Our fleet is a meticulously selected assembly of the world's most elite vehicles, maintained to exacting standards and presented with professional grace.
                 </p>
               </div>
               <div className="mt-16 grid grid-cols-2 gap-12 border-t border-white/5 pt-16">
                 <div>
-                  <p className="text-5xl font-bold mb-2">04</p>
-                  <p className="text-[9px] uppercase tracking-[0.4em] text-red-500 font-bold">Primary Hubs</p>
+                  <p className="text-5xl font-serif mb-2">02</p>
+                  <p className="text-[10px] font-medium uppercase tracking-[0.4em] text-red-500">Key Hubs</p>
                 </div>
                 <div>
-                  <p className="text-5xl font-bold mb-2">100%</p>
-                  <p className="text-[9px] uppercase tracking-[0.4em] text-red-500 font-bold">Execution</p>
+                  <p className="text-5xl font-serif mb-2 italic text-red-500">Total</p>
+                  <p className="text-[10px] font-medium uppercase tracking-[0.4em] text-red-500">Commitment</p>
                 </div>
               </div>
             </div>
             
-            <div className="order-1 lg:order-2 relative aspect-3/4 bg-white/[0.02] border border-white/10 flex items-center justify-center p-12 corner-bracket">
-              <div className="absolute inset-0 opacity-10 blur-3xl bg-red-600/20" />
+            <div className="order-1 lg:order-2 relative aspect-3/4 bg-white/[0.01] border border-white/5 flex items-center justify-center p-8 overflow-hidden group">
+              <div className="absolute inset-0 opacity-10 bg-red-600/10 blur-3xl group-hover:scale-150 transition-luxury duration-1000" />
               <img 
                 src="https://static.wixstatic.com/media/dfb3c4_b6f26321e375441caaf70f3e26f8cef5~mv2.jpg" 
-                className="w-full h-full object-cover border border-white/5 grayscale group-hover:grayscale-0 transition-all duration-1000"
+                className="w-full h-full object-cover grayscale opacity-80 group-hover:grayscale-0 group-hover:opacity-100 transition-luxury"
                 referrerPolicy="no-referrer"
               />
-              {/* Technical Overlay */}
-              <div className="absolute top-1/2 left-0 w-full h-px bg-red-600/40" />
-              <div className="absolute top-0 left-1/2 w-px h-full bg-red-600/40" />
             </div>
           </div>
         </div>
       </section>
 
-      {/* FOOTER: TECHNICAL DARK */}
+      {/* FOOTER */}
       <footer id="contact" className="relative z-20 bg-luxury-black border-t border-white/5 px-10 pt-40 pb-20 md:px-16">
         <div className="max-w-[1400px] mx-auto grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-20 mb-32">
           <div className="col-span-1 lg:col-span-1">
             <div className="flex items-center gap-4 mb-12">
               <img 
-                src="/Screenshot 2026-04-23 at 12.45.14 PM.png" 
-                alt="Turismo" 
-                className="h-10 w-auto invert brightness-0"
+                src="https://scontent-lga3-1.cdninstagram.com/v/t51.82787-19/526703414_17852401122503048_6359411001709861290_n.jpg?stp=dst-jpg_s150x150_tt6&_nc_cat=109&ccb=7-5&_nc_sid=f7ccc5&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLnd3dy4xMDgwLkMzIn0%3D&_nc_ohc=kzFGTBJd2ngQ7kNvwHCeAIb&_nc_oc=AdpBzAtLfUSf58lbGQ7H-x-kXyePdzMi4vfXPdgwHHFGjOOPIYtCVb2zgh7yBX41CoZlv9p69phK-YkZZRsILwJk&_nc_ad=z-m&_nc_cid=0&_nc_zt=24&_nc_ht=scontent-lga3-1.cdninstagram.com&_nc_gid=4iA01epEyhECIB4zBDKZ8A&_nc_ss=7a22e&oh=00_Af2_J-F0jYbIWBXWh0X-wVGqeAccL7Km0tfr6WbpYSbB-g&oe=69F29EA0" 
+                alt="Sins Exotic" 
+                className="h-12 w-12 rounded-full object-cover"
               />
               <div>
-                <span className="text-xl font-bold tracking-tighter text-white uppercase leading-none block">Turismo</span>
-                <span className="text-[10px] tracking-[0.4em] text-red-500 font-bold uppercase mt-1">Exotics HQ</span>
+                <span className="text-xl font-serif tracking-tight text-white uppercase leading-none block italic">Sins Exotic</span>
+                <span className="text-[10px] tracking-[0.4em] text-red-500 font-medium uppercase mt-1">Car Rental</span>
               </div>
             </div>
-            <div className="flex flex-col gap-4 text-[9px] font-mono uppercase tracking-[0.2em] text-white/30">
-              <p>COORD: 25.7617° N, 80.1918° W</p>
-              <p>STATUS: OPERATIONAL_24/7</p>
-              <p>VERSION: 2.1.0_LATEST</p>
+            <div className="flex flex-col gap-4 text-[10px] uppercase tracking-[0.2em] text-white/30 italic">
+              <p>NY / NJ Territories</p>
+              <p>Professional Concierge</p>
+              <p>Established Elegance</p>
             </div>
           </div>
 
           <div>
-            <h4 className="text-[10px] font-bold uppercase tracking-[0.6em] mb-12 text-red-500">Fleet Interface</h4>
-            <div className="flex flex-col gap-8 text-[11px] font-bold uppercase tracking-[0.3em] text-white/50">
-              {["Master Deck", "Support Hub", "Access Portal", "System Inquiry"].map(label => (
-                <a key={label} href="#" className="hover:text-red-500 transition-colors w-fit">{label}</a>
+            <h4 className="text-[10px] font-medium uppercase tracking-[0.6em] mb-12 text-red-500">Fleet Interface</h4>
+            <div className="flex flex-col gap-8 text-[11px] font-medium uppercase tracking-[0.3em] text-white/40">
+              {["Our Fleet", "Concierge Support", "Private Access", "Inquire"].map(label => (
+                <a key={label} href="#" className="hover:text-red-500 transition-luxury w-fit">{label}</a>
               ))}
             </div>
           </div>
 
           <div>
-            <h4 className="text-[10px] font-bold uppercase tracking-[0.6em] mb-12 text-red-500">Contact Protocol</h4>
-            <div className="flex flex-col gap-8 text-[11px] font-bold uppercase tracking-[0.3em] text-white/30">
-              <p>Direct: FL_NY_TERRITORIES</p>
-              <p>Secure: ENCRYPTED_INBOX</p>
-              <p>Global: HUB_LOGISTICS</p>
+            <h4 className="text-[10px] font-medium uppercase tracking-[0.6em] mb-12 text-red-500">Contact</h4>
+            <div className="flex flex-col gap-8 text-[11px] font-medium uppercase tracking-[0.3em] text-white/30">
+              <p>New York Operations</p>
+              <p>New Jersey Logistics</p>
+              <p>Private Bookings</p>
             </div>
           </div>
 
-          <div className="relative p-12 bg-white/[0.02] border border-white/10 corner-bracket overflow-hidden group">
-            <div className="absolute inset-0 bg-red-600/5 translate-y-full group-hover:translate-y-0 transition-transform duration-500" />
-            <h4 className="relative text-[10px] font-black uppercase tracking-[0.4em] mb-8 text-white">System Inquiry</h4>
-            <button className="relative w-full py-5 bg-red-600 text-white text-[10px] font-black uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-all hud-glow">
-              Initialize Booking
+          <div className="relative p-12 bg-white/[0.02] border border-white/5 overflow-hidden group">
+            <h4 className="relative text-[10px] font-medium uppercase tracking-[0.4em] mb-8 text-white">Join the Elite</h4>
+            <button className="relative w-full py-5 bg-red-600 text-white text-[10px] font-bold uppercase tracking-[0.3em] hover:bg-white hover:text-black transition-luxury">
+              Book Today
             </button>
           </div>
         </div>
 
-        <div className="max-w-[1400px] mx-auto border-t border-white/5 pt-10 flex justify-between items-center">
-          <p className="text-[9px] font-mono tracking-[0.4em] text-white/10 uppercase">© 2025 TURISMO_OPERATIONS // ALL_RIGHTS_RESERVED.</p>
-          <div className="hidden md:flex gap-10">
-            {["Terms", "Privacy", "System"].map(link => (
-              <a key={link} href="#" className="text-[9px] font-mono tracking-[0.4em] text-white/10 hover:text-red-500 transition-colors uppercase">{link}</a>
+        <div className="max-w-[1400px] mx-auto border-t border-white/5 pt-10 flex flex-col md:flex-row justify-between items-center gap-8">
+          <p className="text-[10px] tracking-[0.2em] text-white/10 uppercase">© 2025 Sins Exotic Car Rental // All Rights Reserved.</p>
+          <div className="flex gap-10">
+            {["Terms", "Privacy", "Concierge"].map(link => (
+              <a key={link} href="#" className="text-[10px] tracking-[0.2em] text-white/10 hover:text-red-500 transition-luxury uppercase">{link}</a>
             ))}
           </div>
         </div>
       </footer>
-
-      {/* Grid Lines Global Overlay */}
-      <div className="fixed inset-0 z-10 pointer-events-none border-x border-white opacity-[0.03] mx-auto max-w-[1400px]" />
 
       {/* Fleet Overlay Component */}
       <AnimatePresence>
